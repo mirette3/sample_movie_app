@@ -1,4 +1,4 @@
-#Sun Aug 21 22:03:13 EET 2022
-base.0=/Users/Mirette/StudioProjects/sample_movies/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+#Wed Aug 24 09:57:36 EET 2022
+base.0=/Users/Mirette/sample_movie_app/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

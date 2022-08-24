@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:sample_movies/data/data_source/base_datasource.dart';
 import 'package:sample_movies/data/data_source/local_data_source.dart';
 import 'package:sample_movies/data/data_source/remote_data_source.dart';
 import 'package:sample_movies/data/repo/movies_repo.dart';
@@ -9,34 +11,31 @@ import 'package:sample_movies/domain/usecase/popular_usecase.dart';
 class MovieViewModel extends ChangeNotifier{
 
   List<MovieEntity> movies = [];
-  // DatabaseHelper handler;
-
+  BaseDataSource? baseDataSource;
 
   void getPopularData() async {
-    if(movies.isEmpty) {
-      BaseRemoteDataSource baseRemoteDataSource = MovieRemoteDataSource();
-      BaseMovieRepo baseMovieRepo = MoviesRepo(baseRemoteDataSource);
+    bool result = await InternetConnectionChecker().hasConnection;
+
+    if(result== true) {
+      baseDataSource = MovieRemoteDataSource();
+      BaseMovieRepo baseMovieRepo = MoviesRepo(baseDataSource!);
       final result = await PopularMoviesUseCase(baseMovieRepo).execute();
       result.fold((l) => null, (r) => movies = r);
-      print("My moviesssssss$movies");
+      print("from api");
       notifyListeners();
-      DatabaseHelper.instance.insertMovie(movies);
-      notifyListeners();
-    }else{
-      DatabaseHelper.instance.retrieveMovies();
+
+    }
+    else{
+      baseDataSource = MovieLocalDataSource();
+      BaseMovieRepo baseMovieRepo = MoviesRepo(baseDataSource!);
+      final result = await PopularMoviesUseCase(baseMovieRepo).execute();
+      result.fold((l) => null, (r) => movies = r);
+      print("from database");
+
       notifyListeners();
     }
   }
 
 
-  void initDb(){
-    DatabaseHelper.instance.insertMovie(movies);
-    // DatabaseHelper.initDatabase().whenComplete(() async {
-    //   handler.insertMovie(movies);
-    // notifyListeners();
-    print("createddd");
-
-    // });
-  }
 
 }
