@@ -1,5 +1,3 @@
-import 'package:dartz/dartz.dart';
-import 'package:sample_movies/core/network/failuer.dart';
 import 'package:sample_movies/domain/base_repo/base_movie_repo.dart';
 import 'package:sample_movies/domain/entities/movie_entity.dart';
 
@@ -9,7 +7,7 @@ class PopularMoviesUseCase{
 
   PopularMoviesUseCase(this.baseMovieRepo);
 
-  Future<Either<Failure,List<MovieEntity>>> execute() async{
+  Future<List<MovieEntity>> execute() async{
     return await baseMovieRepo.getPopularMovies();
   }
 }

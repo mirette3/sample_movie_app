@@ -1,3 +1,7 @@
+sample_movies
+2.17
+file:///Users/Mirette/Downloads/sample_movie_app/
+file:///Users/Mirette/Downloads/sample_movie_app/lib/
 async
 2.12
 file:///Users/Mirette/FlutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.8.2/
@@ -242,8 +246,4 @@ flutter_test
 2.17
 file:///Users/Mirette/FlutterDev/flutter/packages/flutter_test/
 file:///Users/Mirette/FlutterDev/flutter/packages/flutter_test/lib/
-sample_movies
-2.17
-file:///Users/Mirette/sample_movie_app/
-file:///Users/Mirette/sample_movie_app/lib/
 2
