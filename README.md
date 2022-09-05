@@ -1,16 +1,14 @@
 # sample_movies
 
-A new Flutter project.
+### Overview
+This simple flutter app uses the TMDB API to get popular movies and shows how to design a clean architecture app using provider for state mangement and dio for Api.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+### Packages
+- provider
+- path_provider
+- sqlflite
+- shimmer
+- cached_network_image
+- dio
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
